@@ -21,3 +21,38 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 
 .brand-wordmark,.footer-wordmark{display:flex;flex-direction:column;line-height:1;color:var(--navy)}.brand-wordmark b,.footer-wordmark b{font:800 31px 'Playfair Display',serif;letter-spacing:3px}.brand-wordmark small,.footer-wordmark small{font:800 8px 'DM Sans',sans-serif;letter-spacing:1.1px;margin-top:6px}.footer-wordmark{color:#fff}.footer-wordmark b{font-size:29px}.footer-wordmark small{color:#d7bd8b}
+
+/* Centered navigation: no duplicate contact strip */
+.topline{display:none!important}
+.site-header{height:92px}
+.nav-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:22px}
+.brand{justify-self:start}
+.main-nav{grid-column:2;justify-self:center;display:flex;align-items:center;gap:clamp(16px,2.25vw,34px)}
+.main-nav>a:not(.nav-book){font-size:13px;font-weight:700;color:#536176;white-space:nowrap}
+.nav-book{justify-self:end;grid-column:3;grid-row:1;padding:14px 20px}
+.mobile-toggle{display:none}
+.page-intro{min-height:430px;position:relative;overflow:hidden}
+.page-intro .shell{position:relative;z-index:1}
+.page-intro-about{min-height:500px;background-position:center 44%}
+.page-intro-about:after{content:"OUR STORY";position:absolute;right:5vw;bottom:-.2em;font:700 clamp(90px,18vw,250px)/.8 'Playfair Display',serif;color:#ffffff12;letter-spacing:-.06em;pointer-events:none}
+.page-intro-services{min-height:350px;background-position:center 58%;text-align:center}
+.page-intro-services .shell{display:flex;flex-direction:column;align-items:center}
+.page-intro-services p{margin-inline:auto}
+.page-intro-umrah{min-height:560px;background-position:center 48%}
+.page-intro-umrah:before{content:"";position:absolute;inset:22px;border:1px solid #e4c47e70;pointer-events:none}
+.page-intro-contact{min-height:330px;background-position:center 54%;text-align:center}
+.page-intro-contact .shell{display:flex;flex-direction:column;align-items:center}
+.page-intro-contact p{margin-inline:auto}
+@media(max-width:900px){.main-nav{gap:14px}.main-nav>a:not(.nav-book){font-size:11px}.nav-book{padding:12px 14px;font-size:11px}}
+@media(max-width:680px){
+ .site-header{height:74px}
+ .nav-row{display:flex;justify-content:space-between;gap:12px}
+ .mobile-toggle{display:block;order:3}
+ .nav-book{display:none}
+ .main-nav{display:none;position:absolute;top:74px;left:0;right:0;background:#fff;padding:20px 24px 24px;box-shadow:0 18px 25px #071b3618;align-items:stretch;flex-direction:column;gap:18px;z-index:40}
+ .main-nav.is-open{display:flex}
+ .main-nav>a:not(.nav-book){font-size:14px}
+ .page-intro{min-height:340px}
+ .page-intro-about{min-height:390px}
+ .page-intro-umrah{min-height:430px}
+}
