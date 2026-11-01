@@ -7,8 +7,8 @@ import './style.css';
 const PHONE='03074553307', PHONE2='03000620032', EMAIL='hm634683@gmail.com';
 const wa=(message='Assalam-o-Alaikum, I would like to know about VOCO travel services.')=>`https://wa.me/923074553307?text=${encodeURIComponent(message)}`;
 const slides=[
- {src:'https://images.unsplash.com/photo-1565330770968-0240c0046ce3?auto=format&fit=crop&w=2200&q=88',tag:'A JOURNEY OF FAITH',title:'A sacred journey,\nbeautifully arranged.'},
- {src:'https://images.unsplash.com/photo-1722189226954-59f3e712160d?auto=format&fit=crop&w=2200&q=88',tag:'MAKKAH & MADINAH',title:'Make memories\nthat stay forever.'},
+ {src:'https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=2400&q=90',tag:'A JOURNEY OF FAITH',title:'A sacred journey,\nbeautifully arranged.'},
+ {src:'https://images.unsplash.com/photo-1565552629476-7e2d3f2c6f6f?auto=format&fit=crop&w=2400&q=90',tag:'MAKKAH & MADINAH',title:'Make memories\nthat stay forever.'},
  {src:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2200&q=88',tag:'EXPLORE THE WORLD',title:'Your next journey\nstarts with VOCO.'}
 ];
 const services=[
@@ -22,12 +22,12 @@ function Header(){
  const [open,setOpen]=useState(false);
  const links=[['Home','/'],['About','/about'],['Services','/services'],['Umrah Packages','/umrah-packages'],['Contact','/contact']];
  return <header className="site-header"><div className="shell nav-row">
- <NavLink to="/" className="brand" onClick={()=>setOpen(false)} aria-label="VOCO home"><span className="brand-wordmark"><b>VOCO</b><small>INTERNATIONAL TRAVELS & TOURS</small></span></NavLink>
+ <NavLink to="/" className="brand" onClick={()=>setOpen(false)} aria-label="VOCO home"><span className="brand-wordmark"><b>VOCO<span className="brand-mark">✦</span></b><small>INTERNATIONAL TRAVELS & TOURS</small><i>EXPLORE · EXPERIENCE · ENJOY</i></span></NavLink>
  <nav className={open?'main-nav is-open':'main-nav'} aria-label="Main navigation">{links.map(([label,path])=><NavLink key={path} to={path} end={path==='/'} onClick={()=>setOpen(false)}>{label}</NavLink>)}</nav>
  <a className="nav-book" href={wa('Hello VOCO, I would like to make a booking enquiry.')}>Book Now <ArrowRight size={15}/></a>
  <button className="mobile-toggle" onClick={()=>setOpen(!open)} aria-label="Toggle navigation">{open?<X/>:<Menu/>}</button></div></header>
 }
-function Footer(){return <footer className="footer"><div className="shell footer-grid"><div><span className="footer-wordmark"><b>VOCO</b><small>INTERNATIONAL TRAVELS & TOURS</small></span><p className="footer-tag">Explore • Experience • Enjoy</p><p className="footer-copy">Thoughtful travel guidance for journeys that matter — from everyday flights to your sacred Umrah journey.</p></div><div><h4>Explore</h4><NavLink to="/about">About VOCO</NavLink><NavLink to="/services">Our Services</NavLink><NavLink to="/umrah-packages">Umrah Packages</NavLink><NavLink to="/contact">Contact Us</NavLink></div><div><h4>Get in touch</h4><p><MapPin size={15}/> M-58, Ashiana Centre, Main Boulevard, near Liberty Chowk, Gulberg III, Lahore</p><a href="tel:03074553307"><Phone size={15}/> {PHONE}</a><a href="mailto:hm634683@gmail.com"><Mail size={15}/> {EMAIL}</a></div></div><div className="copyright">© {new Date().getFullYear()} VOCO International Travels & Tours. All rights reserved.</div></footer>}
+function Footer(){return <footer className="footer"><div className="shell footer-grid"><div><span className="footer-wordmark"><b>VOCO<span className="brand-mark">✦</span></b><small>INTERNATIONAL TRAVELS & TOURS</small></span><p className="footer-tag">Explore • Experience • Enjoy</p><p className="footer-copy">Thoughtful travel guidance for journeys that matter — from everyday flights to your sacred Umrah journey.</p></div><div><h4>Explore</h4><NavLink to="/about">About VOCO</NavLink><NavLink to="/services">Our Services</NavLink><NavLink to="/umrah-packages">Umrah Packages</NavLink><NavLink to="/contact">Contact Us</NavLink></div><div><h4>Get in touch</h4><p><MapPin size={15}/> M-58, Ashiana Centre, Main Boulevard, near Liberty Chowk, Gulberg III, Lahore</p><a href="tel:03074553307"><Phone size={15}/> {PHONE}</a><a href="mailto:hm634683@gmail.com"><Mail size={15}/> {EMAIL}</a></div></div><div className="copyright">© {new Date().getFullYear()} VOCO International Travels & Tours. All rights reserved.</div></footer>}
 function PageIntro({eyebrow,title,desc,image,variant="default"}){return <section className={`page-intro page-intro-${variant}`} style={{backgroundImage:`linear-gradient(90deg,rgba(5,22,47,.92),rgba(5,22,47,.55)),url(${image})`}}><div className="shell"><span className="eyebrow">{eyebrow}</span><h1>{title}</h1><p>{desc}</p></div></section>}
 function Home(){const [slide,setSlide]=useState(0);useEffect(()=>{const t=setInterval(()=>setSlide(s=>(s+1)%slides.length),6000);return()=>clearInterval(t)},[]);
  const change=d=>setSlide(s=>(s+d+slides.length)%slides.length);
