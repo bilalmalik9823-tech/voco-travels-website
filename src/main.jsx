@@ -1,0 +1,46 @@
+import React, { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import { Menu, X, Plane, Globe2, Hotel, ShieldCheck, Headphones, ArrowRight, MapPin, Phone, Mail, CheckCircle2, Star } from 'lucide-react';
+import './style.css';
+
+const phone1 = '03074553307';
+const phone2 = '03000620032';
+const wa = (number, message='Assalam-o-Alaikum, I would like to know about your travel services.') => `https://wa.me/92${number.replace(/^0/,'')}?text=${encodeURIComponent(message)}`;
+
+function App() {
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState('Home');
+  const nav = ['Home','About','Services','Umrah Packages','Contact'];
+  const go = (id, label=id) => { setActive(label); setOpen(false); document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); };
+  const services = [
+    {icon:<Plane/>,title:'Air Ticketing',desc:'Domestic and international flight enquiries, ticket options and booking assistance.'},
+    {icon:<Globe2/>,title:'Visit Visa',desc:'Guidance and assistance for visit visa services and travel documentation.'},
+    {icon:<Hotel/>,title:'Umrah Services',desc:'Umrah visa, tickets and package options designed around your journey.'},
+    {icon:<MapPin/>,title:'Travel Consultation',desc:'Personal support to help you plan your route, dates and travel requirements.'}
+  ];
+  return <>
+    <div className="topbar"><div className="container topinner"><span><MapPin size={14}/> M-58, Ashiana Centre, Main Boulevard, Gulberg III, Lahore</span><span><Phone size={14}/> {phone1} &nbsp;|&nbsp; {phone2}</span></div></div>
+    <header className="header"><div className="container navwrap">
+      <a className="brand" href="#home" onClick={e=>{e.preventDefault();go('home','Home')}}><div className="brandmark"><Globe2 size={28}/><Plane size={15} className="brandplane"/></div><div><strong>VOCO</strong><small>INTERNATIONAL TRAVELS & TOURS</small></div></a>
+      <nav className={open?'nav open':'nav'}>{nav.map((n,i)=><button key={n} className={active===n?'navlink active':'navlink'} onClick={()=>go(['home','about','services','packages','contact'][i],n)}>{n}</button>)}<a className="navcta" href={wa(phone1,'Hello VOCO, I would like to book a trip.')}>Book Now <ArrowRight size={15}/></a></nav>
+      <button className="menu" aria-label="Toggle menu" onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button>
+    </div></header>
+    <main>
+      <section className="hero" id="home"><div className="heroimage"></div><div className="herooverlay"></div><div className="container herocontent">
+        <div className="eyebrow"><span></span> YOUR JOURNEY STARTS HERE</div><h1>Explore the world.<br/><em>Travel with confidence.</em></h1>
+        <p>From your first flight to a spiritually meaningful Umrah journey, we make every step simple, comfortable and memorable.</p>
+        <div className="herobtns"><a className="btn gold" href={wa(phone1,'Hello VOCO, please guide me about your travel packages.')}>Plan Your Journey <ArrowRight size={17}/></a><button className="btn outline" onClick={()=>go('services','Services')}>Explore Services</button></div>
+        <div className="herofoot"><div><strong>Trusted</strong><span>Travel guidance</span></div><div><strong>Reliable</strong><span>Personal support</span></div><div><strong>Hassle-free</strong><span>Booking assistance</span></div></div>
+      </div></section>
+      <section className="truststrip"><div className="container trustgrid"><div><ShieldCheck/><span><b>Trusted & Reliable</b><small>Service you can count on</small></span></div><div><Headphones/><span><b>Personal Assistance</b><small>Here to guide you</small></span></div><div><Globe2/><span><b>Worldwide Travel</b><small>Explore more destinations</small></span></div><div><CheckCircle2/><span><b>Simple Booking</b><small>Clear, helpful process</small></span></div></div></section>
+      <section className="section about" id="about"><div className="container aboutgrid"><div className="aboutvisual"><div className="aboutphoto"></div><div className="goldnote"><Star fill="currentColor"/><b>Your journey,<br/>our responsibility.</b></div></div><div className="aboutcopy"><div className="eyebrow dark"><span></span> WELCOME TO VOCO</div><h2>Travel planning,<br/><em>made personal.</em></h2><p>At VOCO International Travels & Tours, we believe every journey deserves thoughtful planning and dependable support. Whether you are travelling for business, leisure or Umrah, our team is ready to help you take the next step.</p><div className="ticks"><span><CheckCircle2/> Helpful travel guidance</span><span><CheckCircle2/> Options for different budgets</span><span><CheckCircle2/> Support from enquiry to booking</span></div><a className="textlink" href={wa(phone1,'Hello VOCO, I would like to speak with your travel team.')}>Talk to our team <ArrowRight size={16}/></a></div></div></section>
+      <section className="section services" id="services"><div className="container"><div className="sectionhead"><div className="eyebrow dark"><span></span> WHAT WE DO</div><h2>Travel services for<br/><em>every kind of journey.</em></h2><p>Tell us where you want to go. We will help you explore the right travel options.</p></div><div className="servicegrid">{services.map((s,i)=><article className="servicecard" key={s.title}><div className="serviceicon">{s.icon}</div><div className="servicenum">0{i+1}</div><h3>{s.title}</h3><p>{s.desc}</p><a href={wa(phone1,`Hello VOCO, I am interested in ${s.title}. Please share details.`)}>Enquire now <ArrowRight size={15}/></a></article>)}</div></div></section>
+      <section className="umrah" id="packages"><div className="umrahphoto"></div><div className="umrahshade"></div><div className="container umrahcontent"><div className="eyebrow"><span></span> A JOURNEY OF A LIFETIME</div><h2>Your sacred journey<br/><em>deserves thoughtful care.</em></h2><p>Choose an Umrah duration and accommodation category that suits your needs. Contact us for current dates, availability and package details.</p><div className="packgrid">{['15','21','28'].map(days=><div className="pack" key={days}><strong>{days}</strong><span>Days Umrah</span></div>)}</div><div className="hoteltypes"><span>5-Star</span><span>4-Star</span><span>Economy</span></div><a className="btn gold" href={wa(phone1,'Assalam-o-Alaikum, please share your latest 15, 21 and 28 days Umrah packages, prices and availability.')}>BOOK NOW · UMRAH ENQUIRY <ArrowRight size={17}/></a></div></section>
+      <section className="section promise"><div className="container promisegrid"><div><div className="eyebrow dark"><span></span> THE VOCO PROMISE</div><h2>Good journeys begin<br/><em>with good guidance.</em></h2></div><div className="promiseitems"><div><span>01</span><p><b>Understand your needs</b><small>We start by listening to your destination, dates and preferences.</small></p></div><div><span>02</span><p><b>Explore suitable options</b><small>We help you understand available services and package choices.</small></p></div><div><span>03</span><p><b>Move forward with support</b><small>Get assistance as you proceed with your travel arrangements.</small></p></div></div></div></section>
+      <section className="contact" id="contact"><div className="container contactgrid"><div><div className="eyebrow"><span></span> LET'S PLAN YOUR NEXT TRIP</div><h2>Where will your<br/><em>journey take you?</em></h2><p>Reach out to our team for flight enquiries, Umrah packages, visit visa guidance and travel assistance.</p><a className="btn gold" href={wa(phone1,'Hello VOCO, I would like to make a travel enquiry.')}>Contact Us <ArrowRight size={17}/></a></div><div className="contactcard"><h3>Get in touch</h3><div className="contactrow"><MapPin/><div><small>VISIT OUR OFFICE</small><p>M-58, Ashiana Centre, Main Boulevard, near Liberty Chowk, Gulberg III, Lahore</p></div></div><div className="contactrow"><Phone/><div><small>CALL / WHATSAPP</small><a href={`tel:${phone1}`}>{phone1}</a><a href={`tel:${phone2}`}>{phone2}</a></div></div><div className="contactrow"><Mail/><div><small>EMAIL</small><a href="mailto:hm634683@gmail.com">hm634683@gmail.com</a></div></div><a className="maplink" href="https://share.google/NUa99oohNNvhHUr9g" target="_blank" rel="noreferrer">Find us on Google Maps <ArrowRight size={15}/></a><a className="maplink" href="https://www.facebook.com/share/1CtN8Zotwt/" target="_blank" rel="noreferrer">Visit our Facebook page <ArrowRight size={15}/></a></div></div></section>
+    </main>
+    <footer><div className="container footerinner"><a className="brand footerbrand" href="#home"><div className="brandmark"><Globe2/><Plane size={13} className="brandplane"/></div><div><strong>VOCO</strong><small>INTERNATIONAL TRAVELS & TOURS</small></div></a><p>Explore · Experience · Enjoy</p><div className="footlinks"><a href="#about">About</a><a href="#services">Services</a><a href="#packages">Umrah</a><a href="#contact">Contact</a></div></div><div className="copyright">© {new Date().getFullYear()} VOCO International Travels & Tours. All rights reserved.</div></footer>
+    <a className="whatsapp" href={wa(phone1,'Hello VOCO, I would like to make an enquiry.')} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">WA</a>
+  </>;
+}
+createRoot(document.getElementById('root')).render(<App />);
