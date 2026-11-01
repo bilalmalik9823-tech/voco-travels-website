@@ -114,3 +114,30 @@
 .intro-band-inner{min-height:70px}.section-pad{padding:76px 0}.image-stack>img{height:360px}
 .page-intro{min-height:390px}.page-intro-about{min-height:430px}.page-intro-umrah{min-height:460px}.page-intro h1{font-size:48px}
 .footer{padding-top:48px}}
+
+/* Clear, unmistakable navigation interaction states */
+.main-nav>a:not(.nav-book){
+ position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 13px;
+ border:1px solid transparent;border-radius:4px;color:#536176;
+ font-size:12px;font-weight:800;letter-spacing:.45px;
+ transition:color .2s ease,background .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+.main-nav>a:not(.nav-book):hover,
+.main-nav>a:not(.nav-book):focus-visible{
+ color:#071b36;background:#f5eedf;border-color:#d6b36a;
+ box-shadow:0 5px 16px rgba(7,27,54,.09);transform:translateY(-2px);outline:none;
+}
+.main-nav>a:not(.nav-book).active{
+ color:#071b36;background:#f5eedf;border-color:#d6b36a;
+ box-shadow:inset 0 -3px 0 #c29a4e;
+}
+.nav-book{border:1px solid #071b36;border-radius:3px;transition:all .22s ease}
+.nav-book:hover,.nav-book:focus-visible{background:#d8b66f;color:#071b36;border-color:#c29a4e;box-shadow:0 7px 18px #071b3625;transform:translateY(-2px);outline:none}
+.voco-logo{display:block;width:205px;height:78px;object-fit:contain;object-position:left center}
+.footer .voco-logo{width:190px;height:78px;object-position:left center}
+@media(max-width:900px){.voco-logo{width:176px;height:70px}}
+@media(max-width:680px){
+ .voco-logo{width:155px;height:62px}
+ .main-nav>a:not(.nav-book){min-height:46px;padding:0 14px;border-radius:4px}
+ .main-nav>a:not(.nav-book):hover,.main-nav>a:not(.nav-book).active{transform:none}
+}
