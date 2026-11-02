@@ -141,3 +141,13 @@
  .main-nav>a:not(.nav-book){min-height:46px;padding:0 14px;border-radius:4px}
  .main-nav>a:not(.nav-book):hover,.main-nav>a:not(.nav-book).active{transform:none}
 }
+
+/* Refined navigation: quiet at rest, animated only on interaction */
+.main-nav{gap:clamp(8px,1.15vw,17px)!important}
+.main-nav>a:not(.nav-book){min-height:38px!important;padding:0 9px!important;border:1px solid transparent!important;border-radius:3px!important;background:transparent!important;box-shadow:none!important;color:#536176!important;font-size:12px!important;font-weight:700!important;letter-spacing:.12px!important;transform:none!important;position:relative;transition:color .22s ease,background-color .22s ease,border-color .22s ease,transform .22s ease!important}
+.main-nav>a:not(.nav-book)::after{content:"";position:absolute;left:9px;right:9px;bottom:3px;height:2px;background:#c29a4e;transform:scaleX(0);transform-origin:center;transition:transform .22s ease}
+.main-nav>a:not(.nav-book):hover,.main-nav>a:not(.nav-book):focus-visible{color:#8c6728!important;background:#f8f3e8!important;border-color:#eadbb9!important;box-shadow:none!important;transform:translateY(-1px)!important;outline:none}
+.main-nav>a:not(.nav-book):hover::after,.main-nav>a:not(.nav-book):focus-visible::after,.main-nav>a:not(.nav-book).active::after{transform:scaleX(1)}
+.main-nav>a:not(.nav-book).active{color:#8c6728!important;background:transparent!important;border-color:transparent!important;box-shadow:none!important;transform:none!important}
+@media(max-width:900px){.main-nav{gap:7px!important}.main-nav>a:not(.nav-book){padding:0 7px!important;font-size:11px!important}}
+@media(max-width:680px){.main-nav{gap:10px!important}.main-nav>a:not(.nav-book){min-height:42px!important;padding:0 10px!important}.main-nav>a:not(.nav-book)::after{left:10px;right:10px;bottom:1px}}
