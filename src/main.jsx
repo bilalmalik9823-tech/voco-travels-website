@@ -40,7 +40,7 @@ function Home(){const [slide,setSlide]=useState(0);useEffect(()=>{const t=setInt
  <p>{['A sacred journey deserves calm planning, clear guidance and care at every step.','From the first enquiry to your return, let every detail be thoughtfully arranged.','New destinations, meaningful moments and dependable support — all begin here.'][slide]}</p>
  <div className="hero-actions"><a className="button button-gold" href={wa('Assalam-o-Alaikum, please guide me about VOCO travel services.')}>Begin your journey <ArrowRight size={17}/></a><NavLink className="button button-outline" to="/umrah-packages">Explore Umrah</NavLink></div>
  <div className="hero-trust"><span><ShieldCheck/> Trusted guidance</span><span><Headphones/> Personal support</span><span><Globe2/> Worldwide travel</span></div></div>
- <div className="hero-side-note"><span>0${slide+1} — 03</span><i/><small>TRAVEL WITH PURPOSE</small></div></div>
+ <div className="hero-side-note"><span>{String(slide+1).padStart(2,'0')} — 03</span><i/><small>TRAVEL WITH PURPOSE</small></div></div>
  <div className="hero-controls"><button onClick={()=>change(-1)} aria-label="Previous"><ChevronLeft/></button><span>{String(slide+1).padStart(2,'0')} / 03</span><button onClick={()=>change(1)} aria-label="Next"><ChevronRight/></button></div>
  <div className="hero-dots">{slides.map((s,i)=><button key={s.tag} className={i===slide?'active':''} onClick={()=>setSlide(i)} aria-label={'Slide '+(i+1)}/>)}</div>
  <a className="scroll-cue" href="#journey-story"><span>SCROLL TO EXPLORE</span><i/></a><div className="hero-bottom-label">EXPLORE <b>•</b> EXPERIENCE <b>•</b> ENJOY</div>
