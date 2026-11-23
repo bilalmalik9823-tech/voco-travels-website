@@ -239,3 +239,53 @@ html{scroll-behavior:smooth}
  .story-panel-content h2{font-size:43px}
 }
 @media(prefers-reduced-motion:reduce){.scroll-cue i:after{animation:none}.story-panel:before{transition:none}}
+
+
+/* Cinematic art direction v2 — original CSS-built scenery, no people or stock-photo subjects */
+.cinematic-hero{position:relative;min-height:min(850px,calc(100svh - 96px));background:#071b36!important;isolation:isolate}
+.cinematic-hero:before{z-index:-2!important;background:linear-gradient(105deg,#06172f 0%,#0c2c4b 48%,#183e5b 100%)!important}
+.scene-backdrop{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 75% 34%,#e5c88b28 0,transparent 36%),linear-gradient(180deg,transparent 58%,#06172f 100%)}
+.scene-sun{position:absolute;width:clamp(180px,24vw,340px);aspect-ratio:1;border-radius:50%;right:13%;top:9%;background:radial-gradient(circle at 35% 35%,#fff3d7,#d7b56d 58%,#bd8c43);opacity:.88;box-shadow:0 0 100px #e9c57b45;animation:sunBreathe 8s ease-in-out infinite alternate}
+.scene-horizon{position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(180deg,#183f59 0%,#0b2945 58%,#071b36 100%);clip-path:polygon(0 42%,14% 31%,26% 45%,41% 22%,57% 39%,70% 19%,84% 36%,100% 18%,100% 100%,0 100%)}
+.scene-cloud{position:absolute;width:190px;height:34px;border-radius:50px;background:#f7e9c7;filter:blur(13px);opacity:.13;animation:cloudDrift 24s linear infinite}
+.cloud-one{top:22%;left:49%}.cloud-two{top:37%;left:70%;transform:scale(.7);animation-duration:31s}.cloud-three{top:13%;left:82%;transform:scale(.55);animation-duration:38s}
+.scene-orbit{position:absolute;border:1px solid #e5c88b26;border-radius:50%;width:54vw;height:54vw;max-width:780px;max-height:780px;right:1%;top:2%;transform:rotate(-23deg)}
+.orbit-two{width:43vw;height:43vw;right:6%;top:8%;border-color:#e5c88b17}
+.scene-plane{position:absolute;right:22%;top:37%;color:#f2dfb4;transform:rotate(-12deg);filter:drop-shadow(0 8px 16px #0005);animation:planeGlide 7s ease-in-out infinite}
+.scene-kaaba{position:absolute;right:18%;bottom:19%;width:clamp(125px,17vw,230px);height:clamp(145px,20vw,270px);background:linear-gradient(110deg,#090d12,#24272a 50%,#090d12);clip-path:polygon(0 16%,50% 0,100% 16%,100% 100%,0 100%);filter:drop-shadow(0 28px 30px #0008);opacity:0;transform:translateY(24px) scale(.94);transition:opacity .8s ease,transform .8s ease}
+.scene-kaaba:before{content:"";position:absolute;top:22%;left:0;right:0;height:13%;background:linear-gradient(90deg,#8e6b34,#e4c77e,#9b753c);border-block:2px solid #f0d99a}
+.scene-kaaba span{position:absolute;left:43%;top:46%;width:17%;height:34%;border:2px solid #c5a15e;background:#111}
+.scene-kaaba i{position:absolute;left:0;right:0;bottom:0;height:7%;background:#b38c4d}
+.scene-kaaba b{position:absolute;inset:0;border:1px solid #ffffff20}
+.scene-0 .scene-kaaba{opacity:1;transform:translateY(0) scale(1)}
+.scene-0 .scene-plane{opacity:0}
+.scene-1 .scene-kaaba{opacity:.18;transform:translateY(10px) scale(.9)}
+.scene-1 .scene-plane{opacity:1}
+.scene-2 .scene-kaaba{opacity:0}
+.scene-city{position:absolute;right:10%;bottom:22%;display:flex;align-items:flex-end;gap:8px;opacity:0;transition:opacity .8s}
+.scene-city i{display:block;width:clamp(18px,3vw,42px);height:clamp(80px,12vw,160px);background:linear-gradient(90deg,#183d56,#d1ad69,#16354d);clip-path:polygon(15% 0,85% 0,100% 100%,0 100%)}
+.scene-city i:nth-child(2){height:clamp(115px,16vw,220px)}.scene-city i:nth-child(3){height:clamp(150px,20vw,260px);width:clamp(24px,4vw,55px)}.scene-city i:nth-child(4){height:clamp(95px,14vw,180px)}.scene-city i:nth-child(5){height:clamp(70px,10vw,130px)}
+.scene-2 .scene-city{opacity:.82}
+.cinematic-hero .hero-inner{z-index:2}.cinematic-hero .hero-copy{max-width:720px;animation:copyArrive .75s cubic-bezier(.2,.7,.2,1) both}
+.cinematic-hero h1{max-width:760px;font-size:clamp(58px,7.1vw,96px);line-height:1.02;letter-spacing:-2.4px}
+.cinematic-hero .hero-copy>p:not(.hero-kicker){font-size:15px;line-height:1.9;max-width:480px}
+.hero-bottom-label{position:absolute;right:max(32px,calc((100vw - 1320px)/2));bottom:32px;color:#e8d5ae;font-size:9px;letter-spacing:2.3px;z-index:3}.hero-bottom-label b{color:#c49d58;margin:0 8px}
+.hero-side-note{z-index:3}
+.story-visual-kaaba{background-color:#0d2d48;background-image:radial-gradient(circle at 50% 25%,#d8b66f66,transparent 32%),linear-gradient(180deg,#31566b 0%,#102e48 60%,#071b36 100%)!important;overflow:hidden}
+.story-visual-kaaba:before{content:"";position:absolute;left:50%;bottom:18%;transform:translateX(-50%);width:42%;height:48%;background:linear-gradient(110deg,#080b10,#292b2c 50%,#090d12);clip-path:polygon(0 15%,50% 0,100% 15%,100% 100%,0 100%);box-shadow:0 20px 40px #0008}
+.story-visual-kaaba:after{border-color:#e8d4a477}
+.story-visual-kaaba span{z-index:2}
+.story-panel-flight{background-color:#173b56;background-image:radial-gradient(circle at 70% 25%,#d8b66f66,transparent 27%),linear-gradient(125deg,#071b36,#1d4a65 65%,#b18b52)!important}
+.story-panel-sacred{background-color:#102c46;background-image:radial-gradient(circle at 72% 30%,#e0c48755,transparent 30%),linear-gradient(130deg,#071b36,#254b60 60%,#102a40)!important}
+.story-panel-flight:after,.story-panel-sacred:after{content:"";position:absolute;right:12%;top:15%;width:180px;height:180px;border:1px solid #e7d4a055;border-radius:50%;box-shadow:0 0 0 28px #e7d4a012,0 0 0 58px #e7d4a00b;pointer-events:none}
+.story-panel-sacred:after{width:210px;height:210px;border-radius:0;transform:rotate(45deg);border-color:#e7d4a044}
+@keyframes sunBreathe{from{transform:scale(.96);opacity:.75}to{transform:scale(1.04);opacity:.95}}
+@keyframes cloudDrift{from{translate:-25px 0}to{translate:80px 0}}
+@keyframes planeGlide{0%,100%{translate:0 0}50%{translate:26px -14px}}
+@keyframes copyArrive{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:680px){
+ .cinematic-hero{min-height:740px}.scene-sun{right:-8%;top:8%;width:210px}.scene-kaaba{right:8%;bottom:16%;width:112px;height:135px}.scene-plane{right:10%;top:30%}.scene-city{right:3%;bottom:18%}
+ .cinematic-hero .hero-copy{padding-block:42px 100px}.cinematic-hero h1{font-size:clamp(46px,11.8vw,62px);max-width:95%}
+ .hero-bottom-label{display:none}.hero-side-note{display:none}.story-visual-kaaba{min-height:330px}
+}
+@media(prefers-reduced-motion:reduce){.scene-sun,.scene-cloud,.scene-plane,.cinematic-hero .hero-copy{animation:none!important}}
